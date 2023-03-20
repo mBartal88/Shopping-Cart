@@ -10,7 +10,7 @@ This simple shopping cart shows how React with Typescript, React hooks, React Co
 - Add and remove products from the cart
 - Update quantity in the cart
 - Send confirmation email with EmailJS
-- REST API with Json server for simulating a Backend for fetching Product and User data.
+- REST API with Json server for simulating a Backend for fetching Product and User data
 
 ## Build/Run
 
@@ -31,8 +31,18 @@ npm run dev
 
 ```
 
-#### Optional
+### Optional
 
-- EmailJS account and configuration
+EmailJS account and configuration:
 
-Without it will just console log the email message.
+- Providing 'Service_ID', 'Template_ID' and 'Public_Api_Key' in the SendEmail.tsx file.
+- https://www.emailjs.com/docs/tutorial/overview/
+- Without it will just console log the message.
+
+## How to use
+
+- In order to add products to the cart you need to register a new account and login with it.
+- Clicking the 'Add To Cart' button multiple times increases the quantity.
+- Clicking the 'View Cart' button displays the cart.
+- In the cart you can delete items, update their quantity.
+- Clicking the 'Place Order' button clears the cart and sends a confirmation email.
