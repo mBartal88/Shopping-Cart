@@ -18,7 +18,8 @@ const Header = ({viewCart, setViewCart}: PropsType) => {
     const logoutButton = 
         <button onClick={() => {
             dispatch({ type: REDUCER_ACTIONS.SUBMIT})
-            userContext?.setUser(null)}}>
+            userContext?.setUser(null)
+            setViewCart(false)}}>
             Log Out
         </button>
 
@@ -31,7 +32,7 @@ const Header = ({viewCart, setViewCart}: PropsType) => {
                 {userContext?.user
                 ? <div className="header__price-box">
                     <div className="header__user-box">
-                        <p><FaUser style={{fontSize: "17px", marginRight: "8px"}}/>{userContext?.user?.email}</p>
+                        <p><FaUser style={{fontSize: "17px", marginRight: "8px"}}/>{userContext?.user?.name}</p>
                         </div>
                     <p >Total Items: {totalItems}</p>
                     <p >Total Price: {totalPrice}</p>
@@ -39,18 +40,13 @@ const Header = ({viewCart, setViewCart}: PropsType) => {
                 : null}
                 </div>
 
-            {/* <button><Link className="nav2" to="/">Home</Link></button> */}
-
             {userContext?.user
-            ? <>
-            
-                <Switch viewCart={viewCart} setViewCart={setViewCart} logoutButton={logoutButton}/>
-            </>
+            ? <Switch viewCart={viewCart} setViewCart={setViewCart} logoutButton={logoutButton}/>
             : <>
+                <button><Link className="link" to="/">Home</Link></button>
                 <button><Link className="link" to="login">Login</Link></button>
                 <button><Link className="link" to="register">Register</Link></button>
-            </>
-            }    
+            </>}    
             
         </header>
     )
