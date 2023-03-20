@@ -2,6 +2,7 @@ import { createContext, useState, ReactElement } from "react";
 
 export type UserObjectType = {
     id: string
+    name: string
     email: string
     pw: string
 }
