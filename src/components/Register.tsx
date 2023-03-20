@@ -2,7 +2,7 @@ import apiRequest from "./apiRequest";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:3500/users'
+const API_URL = 'http://localhost:3501/users'
 
 type UserType = {
     id: string
@@ -11,6 +11,7 @@ type UserType = {
 }
 
 const Register = () => {
+    const [newName, setNewName] = useState<string | null>(null)
     const [newEmail, setNewEmail] = useState<string | null>(null)
     const [newPassword, setNewPassword] = useState<string | null>(null)
     const [errorMsg, setErrorMsg] = useState<string | null>(null)
@@ -44,6 +45,7 @@ const Register = () => {
 
         const newUser = { 
             id: id.toString().padStart(4, '0'),
+            name: newName,
             email: newEmail,
             pw: newPassword
         };
@@ -74,12 +76,20 @@ const Register = () => {
                     e.preventDefault()
                     addNewUser()
                 }}>
+                    <label htmlFor="newName">Full Name</label><br />
+                    <input 
+                        type="text" 
+                        id="newName" 
+                        onChange={(e) => setNewName(e.target.value)}
+                        required
+                    /><br />
 
                     <label htmlFor="newEmail">New Email</label><br />
                     <input 
                         type="text" 
                         id="newEmail" 
                         onChange={(e) => setNewEmail(e.target.value)}
+                        required
                     /><br />
 
                     <label htmlFor="newPassword">New Password</label><br />
@@ -87,6 +97,7 @@ const Register = () => {
                         type="text" 
                         id="newPassword"
                         onChange={(e) => setNewPassword(e.target.value)}
+                        required
                     /><br /><br />
 
                     <button type="submit">Register</button><br /><br />
