@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 type PropsType = {
     viewCart: boolean
     setViewCart: React.Dispatch<React.SetStateAction<boolean>>
@@ -9,23 +7,13 @@ type PropsType = {
 const Switch = ({viewCart, setViewCart, logoutButton}: PropsType) => {
 
     const button = viewCart
-        ? <button className='asd' onClick={() => setViewCart(false)}>View Products</button>
-        : <button className='asd' onClick={() => setViewCart(true)}>View Cart</button>
+        ? <button onClick={() => setViewCart(false)}>View Products</button>
+        : <button onClick={() => setViewCart(true)}>View Cart</button>
 
     const content = (
         <>
-        {/* <nav className="nav2">
-            <>
-            <button><Link className="nav2" to="/">Home</Link></button>
-            </>
-        </nav> */}
         {logoutButton}
-        <nav className="nav">
-            <>
-                
-                {button}
-            </>
-        </nav>
+        <nav className="nav">{button}</nav>
         </>
     )
 
