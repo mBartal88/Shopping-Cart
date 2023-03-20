@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { UserContext, UserObjectType } from "../context/UserProvider";
 
-const API_URL = "http://localhost:3500/users"
+const API_URL = "http://localhost:3501/users"
 
 const Login = () => {
     const [email, setEmail] = useState<string | null>(null)
@@ -44,6 +44,7 @@ const Login = () => {
                     type="email" 
                     id="Email" 
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                 /><br />
 
                 <label htmlFor="Password">Password</label><br />
@@ -51,6 +52,7 @@ const Login = () => {
                     type="password" 
                     id="Password" 
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                 /><br /><br />
 
                 <button type="submit">Login</button><br /><br />
