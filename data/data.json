@@ -18,5 +18,27 @@
       "price": 320,
       "description": "Android 12 - MIUI 13 | 50MP Triple Camera System |6.28” | AMOLED Dot Display - 120Hz Refresh | Qualcomm Snapdragon 8 Gen 1 | 256GB Internal Storage | 8GB RAM"
     }
+  ],
+
+  "users": [
+    {
+      "id": "0001",
+      "name": "Kiss Béla",
+      "email": "test@test.com",
+      "pw": "123298"
+    },
+    {
+      "id": "0002",
+      "name": "Nagy Attila",
+      "email": "asd@test.com",
+      "pw": "asd"
+    },
+    {
+      "id": "0003",
+      "name": "Miklós Bartal",
+      "email": "mail@mail.com",
+      "pw": "123"
+    }
   ]
 }
+
