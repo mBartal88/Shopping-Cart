@@ -2,6 +2,8 @@
 
 This simple shopping cart shows how React with Typescript, React hooks, React Context and Styled Components can be used to build an app with instant updates.
 
+<img src="./preview.png">
+
 ### Features
 
 - Login and Register
