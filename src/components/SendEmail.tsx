@@ -1,19 +1,23 @@
 import emailjs from '@emailjs/browser';
 
-const sendConfirmationEmail = (order: string) => {    
-
+const sendConfirmationEmail = (order: string, name: string | undefined) => {    
+    
     const data: Record<string, string> = {
         from_name: 'Sunland Ltd.',
-        to_name: 'Miklós Bartal',
+        to_name: `${name}`,
         message: order
     };
+
+    console.log(`From: ${data.from_name}`)
+    console.log(`To: ${data.to_name}`)
+    console.log(`Email message: ${data.message}`)
     
     emailjs
       .send(
-        'service_6t0lmcp', // SERVICE_ID
-        'template_f7zgvcu', // TEMPLATE_ID
+        'SERVICE_ID',
+        'TEMPLATE_ID',
         data,
-        'VxErxzMuQq-n0YC8F' // PUBLIC_KEY
+        'PUBLIC_KEY'
       )
       .then(
         (result) => {

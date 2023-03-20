@@ -2,10 +2,13 @@ import useCart from "../hooks/useCart"
 import { useState } from "react"
 import CartLineItem from "./CartLineItem"
 import sendConfirmationEmail from "./SendEmail";
+import { useContext } from "react"
+import { UserContext } from "../context/UserProvider";
 
 const Cart = () => {
   const [confirm, setConfirm] = useState<boolean>(false)
   const { dispatch, REDUCER_ACTIONS, totalItems, totalPrice, cart } = useCart()
+  const userContext = useContext(UserContext)
 
   const createCartContentString = () => {
     let messageString = "SUMMARY\n-------------------------------------------------------------------------------\n"
@@ -22,7 +25,7 @@ const Cart = () => {
     const cartContent = createCartContentString()
     dispatch({ type: REDUCER_ACTIONS.SUBMIT})
     setConfirm(true)
-    sendConfirmationEmail(cartContent)
+    sendConfirmationEmail(cartContent, userContext?.user?.name)
   }
 
   const pageContent = confirm
